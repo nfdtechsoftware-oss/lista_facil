@@ -286,39 +286,89 @@ class _CategorySelectionDialog extends StatelessWidget {
 
   const _CategorySelectionDialog({this.initialCategory});
 
+  String _getCategoryName(BuildContext context, ListCategory category) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (category) {
+      case ListCategory.supermarket:
+        return l10n.supermarket;
+      case ListCategory.pharmacy:
+        return l10n.pharmacy;
+      case ListCategory.market:
+        return l10n.market;
+      case ListCategory.bakery:
+        return l10n.bakery;
+      case ListCategory.custom:
+        return l10n.custom;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Escolha um ícone'),
-      content: Wrap(
-        spacing: AppConstants.paddingMedium,
-        runSpacing: AppConstants.paddingMedium,
-        children: ListCategory.values.map((category) {
-          final isSelected = category == initialCategory;
-          return InkWell(
-            onTap: () => Navigator.pop(context, category),
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusSmall),
-            child: Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: isSelected
-                      ? AppConstants.primaryGreen
-                      : Colors.grey[300]!,
-                  width: isSelected ? 2 : 1,
+      title: const Center(
+        child: Text('Escolha uma categoria'),
+      ),
+      contentPadding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: Wrap(
+          spacing: AppConstants.paddingMedium,
+          runSpacing: AppConstants.paddingLarge,
+          alignment: WrapAlignment.center,
+          children: ListCategory.values.map((category) {
+            final isSelected = category == initialCategory;
+            return Material(
+              elevation: isSelected ? 4 : 2,
+              borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+              shadowColor: isSelected
+                  ? AppConstants.primaryGreen.withAlpha(100)
+                  : Colors.black.withAlpha(40),
+              child: InkWell(
+                onTap: () => Navigator.pop(context, category),
+                borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+                child: Container(
+                  width: 80,
+                  padding: const EdgeInsets.all(AppConstants.paddingMedium),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: isSelected
+                          ? AppConstants.primaryGreen
+                          : Colors.grey[300]!,
+                      width: isSelected ? 2.5 : 1.5,
+                    ),
+                    borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+                    color: isSelected
+                        ? AppConstants.primaryGreen.withAlpha(51)
+                        : Colors.white,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        category.emoji,
+                        style: const TextStyle(fontSize: 32),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _getCategoryName(context, category),
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: isSelected
+                              ? AppConstants.primaryGreen
+                              : Colors.grey[700],
+                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        ),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(AppConstants.borderRadiusSmall),
               ),
-              child: Center(
-                child: Text(
-                  category.emoji,
-                  style: const TextStyle(fontSize: 32),
-                ),
-              ),
-            ),
-          );
-        }).toList(),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
