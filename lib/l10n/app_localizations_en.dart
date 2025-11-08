@@ -96,4 +96,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterItemName => 'Please enter item name';
+
+  @override
+  String get clearCompleted => 'Clear purchased';
+
+  @override
+  String get clearCompletedConfirm =>
+      'Do you want to remove all purchased items?';
+
+  @override
+  String get itemsCleared => 'Purchased items removed';
 }

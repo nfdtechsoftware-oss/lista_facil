@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.nfdtech.listafacil"
+    namespace = "com.nfdtech.listafacil.lista_facil"
     compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId = "com.nfdtech.listafacil"
-        minSdk = 21
+        minSdk = flutter.minSdkVersion
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"

@@ -253,6 +253,24 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Digite o nome do item'**
   String get enterItemName;
+
+  /// Botão para limpar itens comprados
+  ///
+  /// In pt, this message translates to:
+  /// **'Limpar comprados'**
+  String get clearCompleted;
+
+  /// Confirmação para limpar itens comprados
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja remover todos os itens já comprados?'**
+  String get clearCompletedConfirm;
+
+  /// Mensagem de sucesso ao limpar itens
+  ///
+  /// In pt, this message translates to:
+  /// **'Itens comprados removidos'**
+  String get itemsCleared;
 }
 
 class _AppLocalizationsDelegate

@@ -4,6 +4,7 @@ import '../models/shopping_item_model.dart';
 import '../services/storage_service.dart';
 import '../widgets/empty_state.dart';
 import '../widgets/shopping_item_tile.dart';
+import '../widgets/confirm_dialog.dart';
 import '../constants/app_constants.dart';
 import '../l10n/app_localizations.dart';
 
@@ -112,6 +113,36 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
     _saveList();
   }
 
+  /// Remove todos os itens comprados da lista
+  Future<void> _clearCompletedItems() async {
+    final l10n = AppLocalizations.of(context)!;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => ConfirmDialog(
+        title: l10n.clearCompleted,
+        message: l10n.clearCompletedConfirm,
+      ),
+    );
+
+    if (confirmed == true && mounted) {
+      setState(() {
+        _list.items.removeWhere((item) => item.isDone);
+        _applySearch();
+      });
+      await _saveList();
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.itemsCleared),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+    }
+  }
+
   /// Filtra itens baseado na busca
   void _applySearch() {
     final query = _searchController.text.toLowerCase();
@@ -147,6 +178,12 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
           ],
         ),
         actions: [
+          if (hasItems && _list.completedItems > 0 && !_isSearching)
+            IconButton(
+              icon: const Icon(Icons.cleaning_services_outlined),
+              tooltip: l10n.clearCompleted,
+              onPressed: _clearCompletedItems,
+            ),
           if (hasItems)
             IconButton(
               icon: Icon(_isSearching ? Icons.close : Icons.search),

@@ -96,4 +96,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get enterItemName => 'Digite o nome do item';
+
+  @override
+  String get clearCompleted => 'Limpar comprados';
+
+  @override
+  String get clearCompletedConfirm =>
+      'Deseja remover todos os itens já comprados?';
+
+  @override
+  String get itemsCleared => 'Itens comprados removidos';
 }

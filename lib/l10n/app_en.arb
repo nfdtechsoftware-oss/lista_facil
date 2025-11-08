@@ -116,5 +116,17 @@
   "enterItemName": "Please enter item name",
   "@enterItemName": {
     "description": "Empty field validation"
+  },
+  "clearCompleted": "Clear purchased",
+  "@clearCompleted": {
+    "description": "Button to clear purchased items"
+  },
+  "clearCompletedConfirm": "Do you want to remove all purchased items?",
+  "@clearCompletedConfirm": {
+    "description": "Confirmation to clear purchased items"
+  },
+  "itemsCleared": "Purchased items removed",
+  "@itemsCleared": {
+    "description": "Success message after clearing items"
   }
 }

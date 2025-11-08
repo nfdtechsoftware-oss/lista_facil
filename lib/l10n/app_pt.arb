@@ -116,5 +116,17 @@
   "enterItemName": "Digite o nome do item",
   "@enterItemName": {
     "description": "Validação de campo vazio"
+  },
+  "clearCompleted": "Limpar comprados",
+  "@clearCompleted": {
+    "description": "Botão para limpar itens comprados"
+  },
+  "clearCompletedConfirm": "Deseja remover todos os itens já comprados?",
+  "@clearCompletedConfirm": {
+    "description": "Confirmação para limpar itens comprados"
+  },
+  "itemsCleared": "Itens comprados removidos",
+  "@itemsCleared": {
+    "description": "Mensagem de sucesso ao limpar itens"
   }
 }
