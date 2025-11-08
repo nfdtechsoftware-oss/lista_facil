@@ -1,0 +1,120 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Lista Fácil",
+  "@appTitle": {
+    "description": "Título do aplicativo"
+  },
+  "addItem": "Adicionar Item",
+  "@addItem": {
+    "description": "Botão para adicionar item"
+  },
+  "itemName": "Nome do item",
+  "@itemName": {
+    "description": "Label para campo de nome do item"
+  },
+  "delete": "Excluir",
+  "@delete": {
+    "description": "Botão excluir"
+  },
+  "cancel": "Cancelar",
+  "@cancel": {
+    "description": "Botão cancelar"
+  },
+  "save": "Salvar",
+  "@save": {
+    "description": "Botão salvar"
+  },
+  "emptyList": "Sua lista está vazia",
+  "@emptyList": {
+    "description": "Mensagem quando lista vazia"
+  },
+  "emptyListSubtitle": "Toque em + para adicionar seu primeiro item",
+  "@emptyListSubtitle": {
+    "description": "Subtítulo do estado vazio"
+  },
+  "searchItems": "Buscar itens...",
+  "@searchItems": {
+    "description": "Hint do campo de busca"
+  },
+  "supermarket": "Supermercado",
+  "@supermarket": {
+    "description": "Categoria supermercado"
+  },
+  "pharmacy": "Farmácia",
+  "@pharmacy": {
+    "description": "Categoria farmácia"
+  },
+  "market": "Feira",
+  "@market": {
+    "description": "Categoria feira"
+  },
+  "bakery": "Padaria",
+  "@bakery": {
+    "description": "Categoria padaria"
+  },
+  "custom": "Personalizada",
+  "@custom": {
+    "description": "Lista personalizada"
+  },
+  "newList": "Nova Lista",
+  "@newList": {
+    "description": "Criar nova lista"
+  },
+  "editList": "Editar Lista",
+  "@editList": {
+    "description": "Editar lista existente"
+  },
+  "deleteList": "Excluir Lista",
+  "@deleteList": {
+    "description": "Excluir lista"
+  },
+  "confirmDelete": "Tem certeza que deseja excluir?",
+  "@confirmDelete": {
+    "description": "Mensagem de confirmação de exclusão"
+  },
+  "allLists": "Todas as Listas",
+  "@allLists": {
+    "description": "Título da tela de listas"
+  },
+  "listName": "Nome da lista",
+  "@listName": {
+    "description": "Label para nome da lista"
+  },
+  "noLists": "Nenhuma lista criada",
+  "@noLists": {
+    "description": "Mensagem quando não há listas"
+  },
+  "noListsSubtitle": "Crie sua primeira lista de compras",
+  "@noListsSubtitle": {
+    "description": "Subtítulo quando não há listas"
+  },
+  "itemsCount": "{count, plural, =0{Nenhum item} =1{1 item} other{{count} itens}}",
+  "@itemsCount": {
+    "description": "Contador de itens",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "completedCount": "{completed} de {total} comprados",
+  "@completedCount": {
+    "description": "Contador de itens completos",
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "noResultsFound": "Nenhum resultado encontrado",
+  "@noResultsFound": {
+    "description": "Mensagem quando busca não retorna resultados"
+  },
+  "enterItemName": "Digite o nome do item",
+  "@enterItemName": {
+    "description": "Validação de campo vazio"
+  }
+}

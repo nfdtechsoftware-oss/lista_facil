@@ -1,0 +1,120 @@
+{
+  "@@locale": "en",
+  "appTitle": "Easy List",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  "addItem": "Add Item",
+  "@addItem": {
+    "description": "Add item button"
+  },
+  "itemName": "Item name",
+  "@itemName": {
+    "description": "Item name field label"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button"
+  },
+  "emptyList": "Your list is empty",
+  "@emptyList": {
+    "description": "Empty list message"
+  },
+  "emptyListSubtitle": "Tap + to add your first item",
+  "@emptyListSubtitle": {
+    "description": "Empty state subtitle"
+  },
+  "searchItems": "Search items...",
+  "@searchItems": {
+    "description": "Search field hint"
+  },
+  "supermarket": "Supermarket",
+  "@supermarket": {
+    "description": "Supermarket category"
+  },
+  "pharmacy": "Pharmacy",
+  "@pharmacy": {
+    "description": "Pharmacy category"
+  },
+  "market": "Farmers Market",
+  "@market": {
+    "description": "Farmers market category"
+  },
+  "bakery": "Bakery",
+  "@bakery": {
+    "description": "Bakery category"
+  },
+  "custom": "Custom",
+  "@custom": {
+    "description": "Custom list"
+  },
+  "newList": "New List",
+  "@newList": {
+    "description": "Create new list"
+  },
+  "editList": "Edit List",
+  "@editList": {
+    "description": "Edit existing list"
+  },
+  "deleteList": "Delete List",
+  "@deleteList": {
+    "description": "Delete list"
+  },
+  "confirmDelete": "Are you sure you want to delete?",
+  "@confirmDelete": {
+    "description": "Delete confirmation message"
+  },
+  "allLists": "All Lists",
+  "@allLists": {
+    "description": "Lists screen title"
+  },
+  "listName": "List name",
+  "@listName": {
+    "description": "List name label"
+  },
+  "noLists": "No lists created",
+  "@noLists": {
+    "description": "Message when no lists exist"
+  },
+  "noListsSubtitle": "Create your first shopping list",
+  "@noListsSubtitle": {
+    "description": "Subtitle when no lists exist"
+  },
+  "itemsCount": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
+  "@itemsCount": {
+    "description": "Items counter",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "completedCount": "{completed} of {total} purchased",
+  "@completedCount": {
+    "description": "Completed items counter",
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "noResultsFound": "No results found",
+  "@noResultsFound": {
+    "description": "Message when search returns no results"
+  },
+  "enterItemName": "Please enter item name",
+  "@enterItemName": {
+    "description": "Empty field validation"
+  }
+}
