@@ -132,5 +132,17 @@
   "sortItems": "Sort items",
   "@sortItems": {
     "description": "Button to sort items (unpurchased first)"
+  },
+  "itemDeleted": "deleted",
+  "@itemDeleted": {
+    "description": "Text when deleting item (e.g., 'Rice deleted')"
+  },
+  "undo": "Undo",
+  "@undo": {
+    "description": "Button to undo action"
+  },
+  "editItem": "Edit Item",
+  "@editItem": {
+    "description": "Edit item dialog title"
   }
 }

@@ -277,6 +277,24 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Ordenar itens'**
   String get sortItems;
+
+  /// Texto ao deletar item (ex: 'Arroz removido')
+  ///
+  /// In pt, this message translates to:
+  /// **'removido'**
+  String get itemDeleted;
+
+  /// Botão para desfazer ação
+  ///
+  /// In pt, this message translates to:
+  /// **'Desfazer'**
+  String get undo;
+
+  /// Título do dialog de edição de item
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar Item'**
+  String get editItem;
 }
 
 class _AppLocalizationsDelegate

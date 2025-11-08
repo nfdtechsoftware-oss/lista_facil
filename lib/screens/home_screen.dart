@@ -232,7 +232,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ShoppingListCard(
                       shoppingList: list,
                       onTap: () => _openList(list),
-                      onLongPress: () => _showListOptions(list),
+                      onEdit: () => _editList(list),
+                      onDelete: () => _deleteList(list),
                     );
                   },
                 ),
@@ -240,41 +241,6 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: _createNewList,
         icon: const Icon(Icons.add),
         label: Text(l10n.newList),
-      ),
-    );
-  }
-
-  /// Mostra opções da lista (editar/deletar)
-  void _showListOptions(ShoppingList list) {
-    final l10n = AppLocalizations.of(context)!;
-
-    showModalBottomSheet(
-      context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.edit),
-              title: Text(l10n.editList),
-              onTap: () {
-                Navigator.pop(context);
-                _editList(list);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.delete, color: Colors.red),
-              title: Text(
-                l10n.deleteList,
-                style: const TextStyle(color: Colors.red),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                _deleteList(list);
-              },
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -328,6 +294,7 @@ class _CategorySelectionDialog extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
                 child: Container(
                   width: 80,
+                  height: 120,
                   padding: const EdgeInsets.all(AppConstants.paddingMedium),
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -343,24 +310,30 @@ class _CategorySelectionDialog extends StatelessWidget {
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         category.emoji,
                         style: const TextStyle(fontSize: 32),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        _getCategoryName(context, category),
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: isSelected
-                              ? AppConstants.primaryGreen
-                              : Colors.grey[700],
-                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                      SizedBox(
+                        height: 28,
+                        child: Center(
+                          child: Text(
+                            _getCategoryName(context, category),
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: isSelected
+                                  ? AppConstants.primaryGreen
+                                  : Colors.grey[700],
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),

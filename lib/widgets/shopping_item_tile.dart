@@ -13,11 +13,15 @@ class ShoppingItemTile extends StatelessWidget {
   /// Callback ao deletar item
   final VoidCallback? onDelete;
 
+  /// Callback ao editar item (long press)
+  final VoidCallback? onEdit;
+
   const ShoppingItemTile({
     super.key,
     required this.item,
     this.onChanged,
     this.onDelete,
+    this.onEdit,
   });
 
   @override
@@ -52,6 +56,7 @@ class ShoppingItemTile extends StatelessWidget {
           onPressed: onDelete,
           color: Colors.grey,
         ),
+        onLongPress: onEdit,
       ),
     );
   }

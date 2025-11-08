@@ -132,5 +132,17 @@
   "sortItems": "Ordenar itens",
   "@sortItems": {
     "description": "Botão para ordenar itens (não comprados primeiro)"
+  },
+  "itemDeleted": "removido",
+  "@itemDeleted": {
+    "description": "Texto ao deletar item (ex: 'Arroz removido')"
+  },
+  "undo": "Desfazer",
+  "@undo": {
+    "description": "Botão para desfazer ação"
+  },
+  "editItem": "Editar Item",
+  "@editItem": {
+    "description": "Título do dialog de edição de item"
   }
 }

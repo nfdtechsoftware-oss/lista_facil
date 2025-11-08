@@ -109,4 +109,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sortItems => 'Ordenar itens';
+
+  @override
+  String get itemDeleted => 'removido';
+
+  @override
+  String get undo => 'Desfazer';
+
+  @override
+  String get editItem => 'Editar Item';
 }

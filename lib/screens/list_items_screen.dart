@@ -104,13 +104,87 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
     _saveList();
   }
 
-  /// Remove um item da lista
+  /// Remove um item da lista com opção de desfazer
   void _deleteItem(ShoppingItem item) {
+    final l10n = AppLocalizations.of(context)!;
+
+    // Guarda a posição do item antes de deletar
+    final itemIndex = _list.items.indexWhere((i) => i.id == item.id);
+
     setState(() {
       _list.removeItem(item.id);
       _applySearch();
     });
     _saveList();
+
+    // Mostra SnackBar com opção de desfazer
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${item.name} ${l10n.itemDeleted}'),
+        action: SnackBarAction(
+          label: l10n.undo,
+          onPressed: () {
+            // Restaura o item na posição original
+            setState(() {
+              _list.items.insert(itemIndex, item);
+              _applySearch();
+            });
+            _saveList();
+          },
+        ),
+        duration: const Duration(seconds: 4),
+      ),
+    );
+  }
+
+  /// Edita o nome de um item
+  Future<void> _editItem(ShoppingItem item) async {
+    final l10n = AppLocalizations.of(context)!;
+    final controller = TextEditingController(text: item.name);
+
+    final newName = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.editItem),
+        content: TextField(
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: l10n.itemName,
+          ),
+          autofocus: true,
+          maxLength: AppConstants.maxItemNameLength,
+          textCapitalization: TextCapitalization.sentences,
+          onSubmitted: (value) {
+            if (value.trim().isNotEmpty) {
+              Navigator.pop(context, value.trim());
+            }
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              if (controller.text.trim().isNotEmpty) {
+                Navigator.pop(context, controller.text.trim());
+              }
+            },
+            child: Text(l10n.save),
+          ),
+        ],
+      ),
+    );
+
+    if (newName != null && newName.isNotEmpty && newName != item.name && mounted) {
+      setState(() {
+        item.name = newName;
+        _applySearch();
+      });
+      await _saveList();
+    }
   }
 
   /// Remove todos os itens comprados da lista
@@ -297,6 +371,7 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
                         item: item,
                         onChanged: (_) => _toggleItem(item),
                         onDelete: () => _deleteItem(item),
+                        onEdit: () => _editItem(item),
                       );
                     },
                   ),
