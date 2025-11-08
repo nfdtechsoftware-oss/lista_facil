@@ -271,6 +271,12 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Itens comprados removidos'**
   String get itemsCleared;
+
+  /// Botão para ordenar itens (não comprados primeiro)
+  ///
+  /// In pt, this message translates to:
+  /// **'Ordenar itens'**
+  String get sortItems;
 }
 
 class _AppLocalizationsDelegate

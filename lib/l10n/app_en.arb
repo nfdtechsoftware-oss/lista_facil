@@ -128,5 +128,9 @@
   "itemsCleared": "Purchased items removed",
   "@itemsCleared": {
     "description": "Success message after clearing items"
+  },
+  "sortItems": "Sort items",
+  "@sortItems": {
+    "description": "Button to sort items (unpurchased first)"
   }
 }

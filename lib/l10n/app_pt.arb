@@ -128,5 +128,9 @@
   "itemsCleared": "Itens comprados removidos",
   "@itemsCleared": {
     "description": "Mensagem de sucesso ao limpar itens"
+  },
+  "sortItems": "Ordenar itens",
+  "@sortItems": {
+    "description": "Botão para ordenar itens (não comprados primeiro)"
   }
 }

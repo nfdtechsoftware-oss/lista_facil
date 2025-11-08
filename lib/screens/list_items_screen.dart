@@ -157,6 +157,18 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
     });
   }
 
+  /// Ordena os itens: não comprados primeiro
+  void _sortItems() {
+    setState(() {
+      _list.items.sort((a, b) {
+        if (a.isDone == b.isDone) return 0;
+        return a.isDone ? 1 : -1;
+      });
+      _applySearch(); // Atualiza a visualização
+    });
+    _saveList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -178,6 +190,12 @@ class _ListItemsScreenState extends State<ListItemsScreen> {
           ],
         ),
         actions: [
+          if (hasItems && !_isSearching)
+            IconButton(
+              icon: const Icon(Icons.swap_vert),
+              tooltip: l10n.sortItems,
+              onPressed: _sortItems,
+            ),
           if (hasItems && _list.completedItems > 0 && !_isSearching)
             IconButton(
               icon: const Icon(Icons.cleaning_services_outlined),

@@ -106,4 +106,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get itemsCleared => 'Itens comprados removidos';
+
+  @override
+  String get sortItems => 'Ordenar itens';
 }
